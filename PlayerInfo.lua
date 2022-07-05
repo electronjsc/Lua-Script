@@ -26,7 +26,7 @@ if enable_autoupdate then
         if autoupdate_loaded then
             Update.json_url = "https://raw.githubusercontent.com/JavaScript-ONE/moonloader-script-updater-playerifno/main/version.json" .. tostring(os.clock())
             Update.prefix = "[" .. string.upper(thisScript().name) .. "]: "
-            Update.url = "https://github.com/JavaScript-ONE/moonloader-script-updater-playerifno"
+            Update.url = "https://github.com/JavaScript-ONE/moonloader-script-updater-playerifno/blob/main/PlayerInfo.lua"
         end
     end
 end
