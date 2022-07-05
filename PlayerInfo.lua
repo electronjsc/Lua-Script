@@ -17,9 +17,9 @@ script_author('JavaScript')
 
 function main()
 	repeat wait(0) until isSampAvailable()
-	sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Успешно загружен! {40E0D0}Ожидаем подключения на сервер...")
+	sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}РЈСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ! {40E0D0}РћР¶РёРґР°РµРј РїРѕРґРєР»СЋС‡РµРЅРёСЏ РЅР° СЃРµСЂРІРµСЂ...")
 	repeat wait(0) until sampGetGamestate() == 3
-    sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Подключены. {40E0D0}Авторы: {008080}JavaScript, {32CD32}Активация *X*")
+    sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}РџРѕРґРєР»СЋС‡РµРЅС‹. {40E0D0}РђРІС‚РѕСЂС‹: {008080}JavaScript, {32CD32}РђРєС‚РёРІР°С†РёСЏ *X*")
 	while true do wait(0)
 		if wasKeyPressed(key.VK_X) then
 			main_window_state.v = not main_window_state.v
@@ -40,8 +40,8 @@ function imgui.OnDrawFrame()
 		imgui.SetNextWindowSize(imgui.ImVec2(170, 145), imgui.Cond.FirstUseEver)
 		imgui.SetNextWindowPos(imgui.ImVec2(30, 400))
 		imgui.WindowFlags.NoMove = false
-		imgui.Begin(u8'Статистика игрока', main_window_state)
-		imgui.Text(u8(string.format('Текущее время: %s', os.date("%X"))))
+		imgui.Begin(u8'РЎС‚Р°С‚РёСЃС‚РёРєР° РёРіСЂРѕРєР°', main_window_state)
+		imgui.Text(u8(string.format('РўРµРєСѓС‰РµРµ РІСЂРµРјСЏ: %s', os.date("%X"))))
 		imgui.Text(u8(string.format('ID: %s', id)))
 		imgui.Text(u8(string.format('PING: %s', ping)))
 		imgui.Text(u8(string.format('NAME: %s', name)))
