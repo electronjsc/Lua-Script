@@ -1,1 +1,1 @@
-# moonloader-script-updater-playerifno
+# moonloader-script-updater-playerinfo
