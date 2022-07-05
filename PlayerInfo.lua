@@ -33,14 +33,13 @@ end
 
 function main()
 	repeat wait(0) until isSampAvailable()
-	sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Óñïåøíî çàãðóæåí! {40E0D0}Îæèäàåì ïîäêëþ÷åíèÿ íà ñåðâåð...")
+	sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Скрипт загружен! {40E0D0}Ожидаем подключения на сервер...")
 	repeat wait(0) until sampGetGamestate() == 3
-    sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Ïîäêëþ÷åíû. {40E0D0}Àâòîðû: {008080}JavaScript, {32CD32}Àêòèâàöèÿ *X*")
+    sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Подключены. {40E0D0}Авторы: {008080}JavaScript, {32CD32}Активация *X*")
 	while true do wait(0)
 		if autoupdate_loaded and enable_autoupdate and Update then
 			pcall(Update.check, Update.json_url, Update.prefix, Update.url)
-			repeat wait(0)
-			sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Èìååòñÿ äîñòóïíîå îáíîâëåíèå. {40E0D0}ÎÁÍÎÂËßÅÌ!")
+			sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Доступно новое обновление. {40E0D0}ОБНОВЛЯЕМ!")
 		end
 		
 		if wasKeyPressed(key.VK_X) then
@@ -62,8 +61,8 @@ function imgui.OnDrawFrame()
 		imgui.SetNextWindowSize(imgui.ImVec2(170, 145), imgui.Cond.FirstUseEver)
 		imgui.SetNextWindowPos(imgui.ImVec2(30, 400))
 		imgui.WindowFlags.NoMove = false
-		imgui.Begin(u8'Ñòàòèñòèêà èãðîêà', main_window_state)
-		imgui.Text(u8(string.format('Òåêóùåå âðåìÿ: %s', os.date("%X"))))
+		imgui.Begin(u8'Статистика игрока', main_window_state)
+		imgui.Text(u8(string.format('Текущее время: %s', os.date("%X"))))
 		imgui.Text(u8(string.format('ID: %s', id)))
 		imgui.Text(u8(string.format('PING: %s', ping)))
 		imgui.Text(u8(string.format('NAME: %s', name)))
