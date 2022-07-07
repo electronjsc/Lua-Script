@@ -32,10 +32,10 @@ update_state = false
 function main()
 
 	repeat wait(0) until isSampAvailable()
-	sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Успешно загружен! {40E0D0}Ожидаем подключения на сервер...")
+	sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}РЈСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ! {40E0D0}РћР¶РёРґР°РµРј РїРѕРґРєР»СЋС‡РµРЅРёСЏ РЅР° СЃРµСЂРІРµСЂ...")
 	repeat wait(0) until sampGetGamestate() == 3
-    sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Подключены. {40E0D0}Авторы: {008080}JavaScript, {32CD32}Активация *X*")
-	sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Добавлена возможность смотреть модели Т/C, {32CD32} Активация *Z* - {A52A2A}NEW")
+    sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}РџРѕРґРєР»СЋС‡РµРЅС‹. {40E0D0}РђРІС‚РѕСЂС‹: {008080}JavaScript, {32CD32}РђРєС‚РёРІР°С†РёСЏ *X*")
+	sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Р”РѕР±Р°РІР»РµРЅР° РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЃРјРѕС‚СЂРµС‚СЊ РјРѕРґРµР»Рё Рў/C, {32CD32} РђРєС‚РёРІР°С†РёСЏ *Z* - {A52A2A}NEW")
 	downloadUrlToFile(update_url, update_path, function(id, status)
 		if status == dlstatus.STATUS_ENDDOWNLOADDATA then
 			updateIni = inicfg.load(nil, update_path)
@@ -52,7 +52,7 @@ function main()
 		if update_state then
 			downloadUrlToFile(script_url, script_path, function(id, status)
 				if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-					sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}Обновление успешно скачалось, обновляем! {40E0D0}Последняя версия скрипта: v" .. updateIni.info.vers_text, -1)
+					sampAddChatMessage("{A52A2A}PLAYER INFO: {32CD32}РћР±РЅРѕРІР»РµРЅРёРµ СѓСЃРїРµС€РЅРѕ СЃРєР°С‡Р°Р»РѕСЃСЊ, РѕР±РЅРѕРІР»СЏРµРј! {40E0D0}РџРѕСЃР»РµРґРЅСЏСЏ РІРµСЂСЃРёСЏ СЃРєСЂРёРїС‚Р°: v" .. updateIni.info.vers_text, -1)
 					thisScript():reload()
 				end
 			end)
@@ -71,24 +71,24 @@ function main()
 	end
 end
 
---[[ Функция диалога
+--[[ Г”ГіГ­ГЄГ¶ГЁГї Г¤ГЁГ Г«Г®ГЈГ 
 function ev.onShowDialog(dialogId, style, title, button1, button2, text)
 	sampAddChatMessage(dialogId, -1)
 end
 ]]
---[[ Диалоги про new
+--[[ Г„ГЁГ Г«Г®ГЈГЁ ГЇГ°Г® new
 function new()
-	sampShowDialog(1999, "Новые обновления", "1.Команда /new.\n2. Просмотр моделей автомобилей.", "Выбрать", "Закрыть")
+	sampShowDialog(1999, "ГЌГ®ГўГ»ГҐ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї", "1.ГЉГ®Г¬Г Г­Г¤Г  /new.\n2. ГЏГ°Г®Г±Г¬Г®ГІГ° Г¬Г®Г¤ГҐГ«ГҐГ© Г ГўГІГ®Г¬Г®ГЎГЁГ«ГҐГ©.", "Г‚Г»ГЎГ°Г ГІГј", "Г‡Г ГЄГ°Г»ГІГј")
 		wait(100)
 
 		local result, button, list, input = sampHasDialogRespond(1999)
 			if result then
 				if button == 1 then
 					if list == 0 then
-						sampShowDialog(2000, "Команда /new", "- Данная команда была создана для просмотра:\n - Будущих обновлений\n - Прошлых обновлений", "Закрыть")
+						sampShowDialog(2000, "ГЉГ®Г¬Г Г­Г¤Г  /new", "- Г„Г Г­Г­Г Гї ГЄГ®Г¬Г Г­Г¤Г  ГЎГ»Г«Г  Г±Г®Г§Г¤Г Г­Г  Г¤Г«Гї ГЇГ°Г®Г±Г¬Г®ГІГ°Г :\n - ГЃГіГ¤ГіГ№ГЁГµ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГ©\n - ГЏГ°Г®ГёГ«Г»Гµ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГ©", "Г‡Г ГЄГ°Г»ГІГј")
 					end
 					if list == 1 then
-						sampShowDialog(2000, "Просмотр моделей автомобилей", "- Данная система была создана, с целью просмотра моделей автомобилей\nАктивация на кнопку *Z*", "Закрыть")
+						sampShowDialog(2000, "ГЏГ°Г®Г±Г¬Г®ГІГ° Г¬Г®Г¤ГҐГ«ГҐГ© Г ГўГІГ®Г¬Г®ГЎГЁГ«ГҐГ©", "- Г„Г Г­Г­Г Гї Г±ГЁГ±ГІГҐГ¬Г  ГЎГ»Г«Г  Г±Г®Г§Г¤Г Г­Г , Г± Г¶ГҐГ«ГјГѕ ГЇГ°Г®Г±Г¬Г®ГІГ°Г  Г¬Г®Г¤ГҐГ«ГҐГ© Г ГўГІГ®Г¬Г®ГЎГЁГ«ГҐГ©\nГЂГЄГІГЁГўГ Г¶ГЁГї Г­Г  ГЄГ­Г®ГЇГЄГі *Z*", "Г‡Г ГЄГ°Г»ГІГј")
 					end
 				end
 			end
@@ -105,10 +105,10 @@ function imgui.OnDrawFrame()
 	local money = getPlayerMoney(id)
 	--if dialogId == 303 then
 		--for line in text:gmatch("[^\n]+") do
-			--if line:find('На вашем банковском счету: (%d+)$') then
-				--local bank = line:match('На вашем банковском счету: (%d+)$')
-				--if line:find('Наличные деньги: (%d+)$') then
-					--local money = line:match('Деньги на банк.счёте: (%d+)$')
+			--if line:find('ГЌГ  ГўГ ГёГҐГ¬ ГЎГ Г­ГЄГ®ГўГ±ГЄГ®Г¬ Г±Г·ГҐГІГі: (%d+)$') then
+				--local bank = line:match('ГЌГ  ГўГ ГёГҐГ¬ ГЎГ Г­ГЄГ®ГўГ±ГЄГ®Г¬ Г±Г·ГҐГІГі: (%d+)$')
+				--if line:find('ГЌГ Г«ГЁГ·Г­Г»ГҐ Г¤ГҐГ­ГјГЈГЁ: (%d+)$') then
+					--local money = line:match('Г„ГҐГ­ГјГЈГЁ Г­Г  ГЎГ Г­ГЄ.Г±Г·ВёГІГҐ: (%d+)$')
 				--end
 			--end
 		--end
@@ -118,16 +118,16 @@ function imgui.OnDrawFrame()
 		imgui.SetNextWindowSize(imgui.ImVec2(200, 230), imgui.Cond.FirstUseEver)
 		imgui.SetNextWindowPos(imgui.ImVec2(30, 300))
 		imgui.WindowFlags.NoMove = false
-		imgui.Begin(u8'Статистика игрока', main_window_state)
-		imgui.Text(u8(string.format('Текущее время: %s', os.date("%X"))))
-		imgui.Text(u8(string.format('Текущая дата: %s', os.date("%x"))))
+		imgui.Begin(u8'РЎС‚Р°С‚РёСЃС‚РёРєР° РёРіСЂРѕРєР°', main_window_state)
+		imgui.Text(u8(string.format('РўРµРєСѓС‰РµРµ РІСЂРµРјСЏ: %s', os.date("%X"))))
+		imgui.Text(u8(string.format('РўРµРєСѓС€Р°СЏ РґР°С‚Р°: %s', os.date("%x"))))
 		imgui.Text(u8(string.format('ID: %s', id)))
 		imgui.Text(u8(string.format('PING: %s', ping)))
 		imgui.Text(u8(string.format('NAME: %s', name)))
 		imgui.Text(u8(string.format('HP: %s', hp)))
 		imgui.Text(u8(string.format('ARM: %s', armour)))
-		--imgui.Text(u8(string.format('Наличные деньги: %s', money)))
-		--imgui.Text(u8(string.format('Деньги на банк.счёте: %s', bank)))
+		--imgui.Text(u8(string.format('ГЌГ Г«ГЁГ·Г­Г»ГҐ Г¤ГҐГ­ГјГЈГЁ: %s', money)))
+		--imgui.Text(u8(string.format('Г„ГҐГ­ГјГЈГЁ Г­Г  ГЎГ Г­ГЄ.Г±Г·ВёГІГҐ: %s', bank)))
 		imgui.End()
 	end
 end
